@@ -11,7 +11,7 @@ export const useUIStore = ()=>{
         dispatch(onCloseDateModal())
     }
     const toggleDateModal = ()=>{
-        (isDateModalOpen) ? openDateModal():closeDateModal()
+        (isDateModalOpen) ?closeDateModal(): openDateModal()
     }
     return {
         //Propiedades

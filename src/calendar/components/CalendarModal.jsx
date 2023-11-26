@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import es from 'date-fns/locale/es';
 import Swal from 'sweetalert2';
 import { useCalendarStore, useUIStore } from '../../hooks';
+import { getEnvVariable } from '../../helpers';
 registerLocale('es', es)
 const customStyles = {
     content: {
@@ -18,8 +19,9 @@ const customStyles = {
     },
   };
 
-  Modal.setAppElement('#root');
-
+if(getEnvVariable().VITE_MODE !== 'test'){
+    Modal.setAppElement('#root')
+}
 
 export const CalendarModal = () => {
     const {isDateModalOpen,closeDateModal}  = useUIStore();
